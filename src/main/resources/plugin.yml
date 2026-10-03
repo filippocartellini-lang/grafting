@@ -1,0 +1,14 @@
+name: Grafting
+version: '${project.version}'
+main: dev.grafting.GraftingPlugin
+api-version: '26.2'
+description: Reassembly (Grafting) from the Fool pathway - three small concept-mixing abilities.
+commands:
+  grafting:
+    description: Gives the Grafting items.
+    usage: /grafting give [player]
+    permission: grafting.give
+permissions:
+  grafting.give:
+    description: Allows /grafting give
+    default: op

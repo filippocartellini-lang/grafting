@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------------------
+# Grafting - configuration
+# Every mode has its own, independent cooldown (counted from the moment of use).
+# ---------------------------------------------------------------------------
+
+# Mode 1: graft another player's abilities onto yourself.
+ability-graft:
+  cooldown-seconds: 120     # time before the same player can graft again
+  duration-seconds: 20      # how long the graft lasts (design range: 15-30)
+  target-range: 20          # how far away the wand can pick a player
+  max-distance: 64          # the graft breaks if the two players get farther apart
+
+# The demo abilities (the system the graft hooks into).
+abilities:
+  cooldown-seconds: 3
+  strike:
+    damage: 8.0
+    range: 20
+  blessing:
+    duration-seconds: 10    # Speed II + Regeneration II
+  wave:
+    radius: 6.0
+    damage: 6.0
+
+# Mode 2: save a checkpoint now, be pulled back to it later.
+time-graft:
+  cooldown-seconds: 90
+  duration-seconds: 10
+
+# Mode 3: join the top and the bottom of the target's fall.
+height-graft:
+  cooldown-seconds: 90
+  duration-seconds: 8
+  target-range: 25
+  max-distance: 64            # effect ends if the caster is farther than this
+  loop-height: 12.0           # blocks fallen before the target is sent back up
+  air-pull-back: 3.0          # blocks LOST on every in-air wrap, so flyers are dragged down
+  min-clearance: 6.0          # free blocks needed above the target (otherwise the cast fails)
+  min-fall-speed: 1.0         # blocks per tick, minimum downward speed while locked
+  impact-damage-percent: 1.5  # % of the target's MAX health lost on every ground impact
